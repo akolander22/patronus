@@ -4,7 +4,7 @@ angular.module('harryApp').controller('PatronusController', function($http){
   var sendData = {};
   var vm = this;
 
-  vm.handleClick = function() {
+  vm.savePatronus = function() {
     $http.get('/patronus')
     .then(function(response){
       console.log(response);

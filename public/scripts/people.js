@@ -4,7 +4,7 @@ angular.module('harryApp').controller('PeopleController', function($http){
   var sendData = {first_name : first_name, last_name : last_name };
   var vm = this;
 
-  vm.handleClick = function() {
+  vm.savePeople = function() {
     $http.get('/people')
     .then(function(response){
       console.log(response);

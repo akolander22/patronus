@@ -13,14 +13,7 @@ angular.module('harryApp').controller('PeopleController', function($http){
   function handleSuccess(response){
     $http.get('/people')
     .then(function(response){
-      vm.peopleNames = response.data;
-    });
-
-    console.log('Success', response);
-    $http.get('/people')
-    .then(function(response){
       vm.persons = response.data;
-
     });
 
   }

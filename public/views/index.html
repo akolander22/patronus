@@ -3,9 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Patronus App</title>
-    <script src="" charset="utf-8"></script>
+    <script src="vendors/angular/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/patronus.js" charset="utf-8"></script>
+    <script src="scripts/people.js" charset="utf-8"></script>
   </head>
   <body>
     <h1> Patronus</h1>
+    <div ng-controller="PeopleController">
+      <h2>Add a new Person</h2>
+      <input type="text" ng-model="people"/>
+      <button ng-click="savePeople()">Submit</button>
+    </div>
+    <div ng-controller="PatronusController">
+      <h2>Add a new Patronus</h2>
+      <input type="text" ng-model="patronus" />
+      <button ng-click="savePatronus()">Submit</button>
+    </div>
   </body>
 </html>

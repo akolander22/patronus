@@ -48,8 +48,8 @@ app.post('/people', function(request, response){
 app.get('/people', function(request, response){
   var client = new pg.Client(config);
 
-  var firstName = '';
-  var lastName = '';
+  // var firstName = '';
+  // var lastName = '';
 
   client.connect(function(err){
     if (err){
@@ -62,7 +62,7 @@ app.get('/people', function(request, response){
         response.sendStatus(500);
       }else{
         console.log('success');
-        response.send(firstName, ' ', lastName);
+        response.send(result.rows);
       }
     })
   })
@@ -84,7 +84,7 @@ app.post('/patronus', function(request, response){
       response.sendStatus(500);
     } else {
       console.log('Great success');
-      response.sendStatus(200);
+      response.send(Status(200));
       client.end()
     }
 
@@ -98,8 +98,6 @@ app.post('/patronus', function(request, response){
 app.get('/patronus', function(request, response){
   var client = new pg.Client(config);
 
-  var patronus = '';
-
 
   client.connect(function(err){
     if (err){
@@ -112,7 +110,7 @@ app.get('/patronus', function(request, response){
         response.sendStatus(500);
       }else{
         console.log('success');
-        response.send(patronus);
+        response.send(result.rows);
       }
     })
   })

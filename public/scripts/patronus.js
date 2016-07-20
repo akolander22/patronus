@@ -2,6 +2,7 @@ angular.module('harryApp', []);
 angular.module('harryApp').controller('PatronusController', function($http){
 
   var sendData = {};
+  sendData.patronus = vm.tempPatronus;
   var vm = this;
 
   vm.savePatronus = function() {

@@ -1,7 +1,9 @@
 angular.module('harryApp', []);
 angular.module('harryApp').controller('PeopleController', function($http){
 
-  var sendData = {first_name : first_name, last_name : last_name };
+  var sendData = {};
+  sendData.first_name = vm.tempFirstName;
+  sendData.last_name = vm.tempLastName;
   var vm = this;
 
   vm.savePeople = function() {

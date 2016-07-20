@@ -84,7 +84,7 @@ app.post('/patronus', function(request, response){
       response.sendStatus(500);
     } else {
       console.log('Great success');
-      response.send(Status(200));
+      response.sendStatus(200);
       client.end()
     }
 

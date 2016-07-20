@@ -10,7 +10,8 @@ angular.module('harryApp').controller('PeopleController', function($http){
     .then(handleSuccess, handleFailure);
     $http.get('/people')
     .then(function(response){
-      console.log(response);
+      vm.persons = response.data;
+
     });
   };
 

@@ -9,15 +9,16 @@
   </head>
   <body>
     <h1> Patronus</h1>
-    <div ng-controller="PeopleController">
+    <div ng-controller="PeopleController as people">
       <h2>Add a new Person</h2>
-      <input type="text" ng-model="people"/>
-      <button ng-click="savePeople()">Submit</button>
+      First Name<input type="text" ng-model="firstName"/>
+      Last Name<input type="text" ng-model="lastName" />
+      <button ng-click="people.savePeople()">Submit</button>
     </div>
-    <div ng-controller="PatronusController">
+    <div ng-controller="PatronusController as patronus">
       <h2>Add a new Patronus</h2>
-      <input type="text" ng-model="patronus" />
-      <button ng-click="savePatronus()">Submit</button>
+      <input type="text" ng-model="patronus.tempPatronus" />
+      <button ng-click="patronus.savePatronus()">Submit</button>
     </div>
   </body>
 </html>

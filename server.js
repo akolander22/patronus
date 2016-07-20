@@ -12,13 +12,29 @@ var config = {
 
 
 
-
-
 app.use(express.static('public'));
 
 app.use(bodyParser.json());
 
 app.use('/', index);
+
+app.post('/people', function(request, response){
+  var client = new pg.Client(config);
+  console.log(request.body);
+  var personFirst = request.body.first_name;
+  var personLast = request.body.last_name;
+  
+  client.connect(function(err){
+    if(err){
+      console.log('Connection error', err);
+    }
+})
+
+});
+  // client.query('INSERT INTO People (first_name, last_name) VALUES ($1)', []
+
+
+
 
 
 

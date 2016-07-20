@@ -1,5 +1,5 @@
 angular.module('harryApp', []);
-angular.module('harryApp').controller('PeopleController', function($scope,$http){
+angular.module('harryApp').controller('PeopleController', function($http){
 
   var sendData = {first_name : first_name, last_name : last_name };
   var vm = this;
@@ -22,8 +22,5 @@ angular.module('harryApp').controller('PeopleController', function($scope,$http)
   }
 
 });
-
-
-
 
 })

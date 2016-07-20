@@ -23,17 +23,54 @@ app.post('/people', function(request, response){
   console.log(request.body);
   var personFirst = request.body.first_name;
   var personLast = request.body.last_name;
-  
+
   client.connect(function(err){
     if(err){
       console.log('Connection error', err);
     }
+    client.query('INSERT INTO People (first_name, last_name) VALUES ($1, $2)', [personFirst, personLast], function(err){
+      if(err){
+      console.log('Query error', err);
+      response.sendStatus(500);
+    } else {
+      console.log('Great success');
+      response.sendStatus(200);
+      client.end()
+    }
+
+
+})
+
 })
 
 });
-  // client.query('INSERT INTO People (first_name, last_name) VALUES ($1)', []
+
+app.post('/patronus', function(request, response){
+  var client = new pg.Client(config);
+  console.log(request.body);
+  var patronusName = request.body.name;
 
 
+  client.connect(function(err){
+    if(err){
+      console.log('Connection error', err);
+    }
+    client.query('INSERT INTO Patronuses (name) VALUES ($1)', [patronusName], function(err){
+      if(err){
+      console.log('Query error', err);
+      response.sendStatus(500);
+    } else {
+      console.log('Great success');
+      response.sendStatus(200);
+      client.end()
+    }
+
+
+})
+
+})
+
+});
 
 
 

@@ -45,6 +45,29 @@ app.post('/people', function(request, response){
 
 });
 
+app.get('/people', function(request, response){
+  var client = new pg.Client(config);
+
+  // var firstName = '';
+  // var lastName = '';
+
+  client.connect(function(err){
+    if (err){
+      console.log('connection error', err);
+
+    }
+    client.query('SELECT * FROM people', [], function(err, result){
+      if(err){
+        console.log('Query error', err);
+        response.sendStatus(500);
+      }else{
+        console.log('success');
+        response.send(result.rows);
+      }
+    })
+  })
+});
+
 app.post('/patronus', function(request, response){
   var client = new pg.Client(config);
   console.log(request.body);
@@ -61,7 +84,7 @@ app.post('/patronus', function(request, response){
       response.sendStatus(500);
     } else {
       console.log('Great success');
-      response.sendStatus(200);
+      response.send(Status(200));
       client.end()
     }
 
@@ -72,7 +95,26 @@ app.post('/patronus', function(request, response){
 
 });
 
+app.get('/patronus', function(request, response){
+  var client = new pg.Client(config);
 
+
+  client.connect(function(err){
+    if (err){
+      console.log('connection error', err);
+
+    }
+    client.query('SELECT * FROM patronuses', [], function(err, result){
+      if(err){
+        console.log('Query error', err);
+        response.sendStatus(500);
+      }else{
+        console.log('success');
+        response.send(result.rows);
+      }
+    })
+  })
+});
 
 
 

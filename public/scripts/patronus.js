@@ -9,7 +9,7 @@ angular.module('harryApp').controller('PatronusController', function($http){
     .then(function(response){
       console.log(response);
     });
-    $http.post('/patronus', sendData).
+    $http.post('/patronus', sendData)
     .then(handleSuccess, handleFailure);
   };
 

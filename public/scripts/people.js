@@ -9,7 +9,7 @@ angular.module('harryApp').controller('PeopleController', function($http){
     .then(function(response){
       console.log(response);
     });
-    $http.post('/people', sendData).
+    $http.post('/people', sendData)
     .then(handleSuccess, handleFailure);
   };
 

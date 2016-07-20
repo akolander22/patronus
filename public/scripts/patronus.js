@@ -2,16 +2,18 @@ angular.module('harryApp', []);
 angular.module('harryApp').controller('PatronusController', function($http){
 
   var sendData = {};
-  sendData.patronus = vm.tempPatronus;  
+  sendData.patronus = vm.tempPatronus;
   var vm = this;
 
   vm.savePatronus = function() {
+    var sendData = {};
+    sendData.patronus = vm.tempPatronus;
+    $http.post('/patronus', sendData)
+    .then(handleSuccess, handleFailure);
     $http.get('/patronus')
     .then(function(response){
       console.log(response);
     });
-    $http.post('/patronus', sendData)
-    .then(handleSuccess, handleFailure);
   };
 
 

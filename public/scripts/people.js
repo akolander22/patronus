@@ -22,5 +22,3 @@ angular.module('harryApp').controller('PeopleController', function($http){
   }
 
 });
-
-})

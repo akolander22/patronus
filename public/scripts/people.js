@@ -8,15 +8,15 @@ angular.module('harryApp').controller('PeopleController', function($http){
     sendData.last_name = vm.tempLastName;
     $http.post('/people', sendData)
     .then(handleSuccess, handleFailure);
-    $http.get('/people')
-    .then(function(response){
-      vm.persons = response.data;
-
-    });
   };
 
   function handleSuccess(response){
     console.log('Success', response);
+    $http.get('/people')
+    .then(function(response){
+      vm.persons = response.data;
+
+    }); 
   }
 
   function handleFailure(response){

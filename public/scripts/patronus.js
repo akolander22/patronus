@@ -8,15 +8,18 @@ angular.module('harryApp').controller('PatronusController', function($http){
     sendData.patronus = vm.tempPatronus;
     $http.post('/patronus', sendData)
     .then(handleSuccess, handleFailure);
-    $http.get('/patronus')
-    .then(function(response){
-      console.log(response.data);
-    });
+
   };
 
 
   function handleSuccess(response){
     console.log('Success', response);
+    $http.get('/patronus')
+    .then(function(response){
+      vm.patronuses = response.data;
+      console.log(response.data);
+
+    });
   }
 
   function handleFailure(response){

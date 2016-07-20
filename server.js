@@ -1,11 +1,22 @@
 var express = require('express');
+var app = express();
 var index = require('./routes/index');
 
+var bodyParser = require('body-parser');
+var pg = require('pg');
+
+var config = {
+  database: 'Harry',
+  port: 5432
+};
 
 
-var app = express();
+
+
 
 app.use(express.static('public'));
+
+app.use(bodyParser.json());
 
 app.use('/', index);
 

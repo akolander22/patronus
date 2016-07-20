@@ -8,13 +8,26 @@ angular.module('harryApp').controller('PatronusController', function($http){
     sendData.patronus = vm.tempPatronus;
     $http.post('/patronus', sendData)
     .then(handleSuccess, handleFailure);
+<<<<<<< HEAD
+=======
+
+>>>>>>> e0c1ac91536eb937021d89cd3e9121e2afacde8c
   };
 
 
   function handleSuccess(response){
+<<<<<<< HEAD
     $http.get('/patronus')
     .then(function(response){
       vm.patronuses = response.data;
+=======
+    console.log('Success', response);
+    $http.get('/patronus')
+    .then(function(response){
+      vm.patronuses = response.data;
+      console.log(response.data);
+
+>>>>>>> e0c1ac91536eb937021d89cd3e9121e2afacde8c
     });
   }
 

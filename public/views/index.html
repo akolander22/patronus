@@ -14,11 +14,21 @@
       First Name<input type="text" ng-model="people.tempFirstName"/>
       Last Name<input type="text" ng-model="people.tempLastName" />
       <button ng-click="people.savePeople()">Submit</button>
+      <ul>
+        <li ng-repeat="name in people.persons">
+          {{name.first_name}} {{name.last_name}}
+        </li>
+      </ul>
     </div>
     <div ng-controller="PatronusController as patronus">
       <h2>Add a new Patronus</h2>
       <input type="text" ng-model="patronus.tempPatronus" />
       <button ng-click="patronus.savePatronus()">Submit</button>
+      <ul>
+        <li ng-repeat="word in patronus.patronuses">
+          {{word.patronus_name}}
+        </li>
+      </ul>
     </div>
   </body>
 </html>

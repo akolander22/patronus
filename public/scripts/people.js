@@ -7,6 +7,7 @@ angular.module('harryApp').controller('PeopleController', function($http){
   var vm = this;
 
   vm.savePeople = function() {
+
     $http.get('/people')
     .then(function(response){
       console.log(response);

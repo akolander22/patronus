@@ -1,7 +1,7 @@
 angular.module('harryApp', []);
 angular.module('harryApp').controller('PeopleController', function($scope,$http){
 
-  var sendData = {};
+  var sendData = {first_name : first_name, last_name : last_name };
   var vm = this;
 
   vm.handleClick = function() {

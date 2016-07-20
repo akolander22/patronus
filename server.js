@@ -55,7 +55,7 @@ app.post('/patronus', function(request, response){
     if(err){
       console.log('Connection error', err);
     }
-    client.query('INSERT INTO patronuses (name) VALUES ($1)', [patronusName], function(err){
+    client.query('INSERT INTO patronuses (patronus_name) VALUES ($1)', [patronusName], function(err){
       if(err){
       console.log('Query error', err);
       response.sendStatus(500);

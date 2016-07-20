@@ -1,15 +1,15 @@
 angular.module('harryApp', []);
-angular.module('harryApp').controller('PatronusController', function($scope,$http){
+angular.module('harryApp').controller('PatronusController', function($http){
+  var vm = this
+  vm.savePatronus = function() {
+    var sendData = {};
+    sendData.task = vm.tempPatronus;
 
-  $scope.handleClick = function() {
-    $http.get('/patronus')
+    $http.get('/patronus', sendData)
     .then(function(response){
       console.log(response);
     });
-  };
-
-  $scope.handleClick2 = function() {
-    $http.post('/patronus')
+    $http.post('/patronus', sendData)
     .then(function(response){
         console.log(response);
     });

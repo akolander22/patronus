@@ -1,22 +1,18 @@
 angular.module('harryApp', []);
-angular.module('harryApp').controller('PeopleController', function($scope,$http){
+angular.module('harryApp').controller('PeopleController', function($http){
 
-  $scope.handleClick = function() {
-    $http.get('/people')
+  var vm = this
+  vm.savePeople = function() {
+    var sendData = {};
+    sendData.task = vm.tempPeople;
+
+    $http.get('/people', sendData)
     .then(function(response){
       console.log(response);
     });
-  };
-
-  $scope.handleClick2 = function() {
-    $http.post('/people')
+    $http.post('/people', sendData)
     .then(function(response){
         console.log(response);
     });
   };
-});
-
-
-
-
 })

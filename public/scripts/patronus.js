@@ -1,18 +1,28 @@
 angular.module('harryApp', []);
-angular.module('harryApp').controller('PatronusController', function($scope,$http){
+angular.module('harryApp').controller('PatronusController', function($http){
 
-  $scope.handleClick = function() {
+  var sendData = {};
+  var vm = this;
+
+  vm.handleClick = function() {
     $http.get('/patronus')
     .then(function(response){
       console.log(response);
     });
+    $http.post('/patronus', sendData).
+    .then(handleSuccess, handleFailure);
   };
 
-  $scope.handleClick2 = function() {
-    $http.post('/patronus')
-    .then(function(response){
-        console.log(response);
-    });
-  };
+
+
+
+
+  function handleSuccess(response){
+    console.log('Success', response);
+  }
+
+  function handleFailure(response){
+    console.log('Failure', response);
+  }
 
 });

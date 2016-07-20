@@ -14,9 +14,6 @@ angular.module('harryApp').controller('PatronusController', function($http){
   };
 
 
-
-
-
   function handleSuccess(response){
     console.log('Success', response);
   }
